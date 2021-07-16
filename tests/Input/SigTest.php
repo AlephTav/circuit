@@ -1,11 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\AlephTools\LogicCircuit;
 
-use LogicException;
 use AlephTools\LogicCircuit\Input\Sig;
+use LogicException;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ */
 class SigTest extends TestCase
 {
     /**
@@ -26,15 +31,15 @@ class SigTest extends TestCase
         $sig = new Sig();
 
         $sig->switchTo(true);
-        $this->assertTrue($sig->out());
+        self::assertTrue($sig->out());
 
         $sig->switchTo(true);
-        $this->assertTrue($sig->out());
+        self::assertTrue($sig->out());
 
         $sig->switchTo(false);
-        $this->assertFalse($sig->out());
+        self::assertFalse($sig->out());
 
         $sig->switchTo(false);
-        $this->assertFalse($sig->out());
+        self::assertFalse($sig->out());
     }
 }

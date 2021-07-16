@@ -36,7 +36,11 @@ abstract class Gate implements Input, Output
             return;
         }
         $this->input[$input] = $value;
-        $this->output = $this->processInput($this->input);
+        $output = $this->processInput($this->input);
+        if ($this->output === $output) {
+            return;
+        }
+        $this->output = $output;
         foreach ($this->elements as [$element, $input]) {
             $element->in($input, $this->output);
         }
