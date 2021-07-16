@@ -1,0 +1,51 @@
+{
+    "name": "alephtools/circuit",
+    "type": "library",
+    "description": "The micro library to build logical circuits.",
+    "license": "MIT",
+    "keywords": ["aleph", "circuit", "logic circuit"],
+    "authors": [
+        {
+            "name": "Aleph Tav",
+            "email": "4lephtav@gmail.com"
+        }
+    ],
+    "prefer-stable": true,
+    "require": {
+        "php": ">=7.4",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9.*",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "vimeo/psalm": "^4.8",
+        "psalm/plugin-phpunit": "^0.16.1"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "AlephTools\\LogicCircuit\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\AlephTools\\LogicCircuit\\": "tests/"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@psalm",
+            "@test"
+        ],
+        "cs-check": "@php-cs-fixer fix --dry-run --diff",
+        "cs-fix": "@php-cs-fixer fix",
+        "php-cs-fixer": "php-cs-fixer --config=.php-cs-fixer.php --allow-risky=yes",
+        "psalm": "psalm --config=psalm.xml --no-cache",
+        "test": "phpunit"
+    }
+}
